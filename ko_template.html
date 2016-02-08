@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div id="tagsList" class="box">
+			<div class="box-head">
+				<h2 class="left">Tags</h2>
+			</div>
+			<div class="box-content">
+				<input type="text" placeholder="Add New Tag" data-bind="value:tagToAdd, valueUpdate:'afterkeydown'">
+				<button data-bind="click:addTag">Add</button>
+
+				<ul data-bind="foreach: tags">
+					<li class="tagItem">
+						<span data-bind="text: Name"></span>
+						<div>
+							<a href="#" class="tag-edit" data-bind="click: $parent.selectTag">Edit</a>
+							<a href="#" class="tag-delete">Delete</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="tagDialog" data-bind="with: selectedTag">
+			Tag Name:
+			<input type="text" data-bind="value:Name" />			
+		</div>
+		
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="js/knockout-3.4.0.js"></script>
+		<script src="js/ko_template.js"></script>
+	</body>
+</html>
